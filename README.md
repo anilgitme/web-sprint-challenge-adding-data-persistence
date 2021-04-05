@@ -112,7 +112,10 @@ After finishing your required elements, you can push your work further. These go
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. Explain the difference between Relational Databases and SQL.
-2. Why do tables need a Primary Key?
-3. What is the name given to a table column that references the Primary Key on another table?
-4. What do we need in order to have a _many to many_ relationship between two tables?
+1. Explain the difference between Relational Databases and SQL. A Relational Database stores and manages the data in the form of tables and
+uses a primiary key or foreign key to establish relationalship with tables. Structured Query Language(data retrieval language) is used to retrive data from a database
+Database
+2. Why do tables need a Primary Key? to ensure accessibility to that table using the unique primary key
+3. What is the name given to a table column that references the Primary Key on another table? The name 
+given is foreign key it puts constriants on a table referring to the primary key of another table or column
+4. What do we need in order to have a _many to many_ relationship between two tables? You would need a join table which has a relationship columns as a group of primary keys
