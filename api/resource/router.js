@@ -1,7 +1,7 @@
 // build your `/api/resources` router here
 const express = require('express');
 const Resource = require('./model')
-const router = express.router();
+const router = express.Router();
 
 //get request from resource
 router.get('/', async(req, res, next) => {

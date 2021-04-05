@@ -2,8 +2,9 @@
 const db = require('../../data/dbConfig')
 
 //get projects
-const getProjects = async => {
-    return await db('projects')
+async function getProjects() {
+    const projects = await db('projects');
+    return projects;
 }
 
 //get project by id

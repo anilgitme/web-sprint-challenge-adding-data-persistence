@@ -2,11 +2,13 @@
 const db = require('../../data/dbConfig')
 
 const getTask = async() => {
-    return await db('tasks')
+    const task = await db('tasks')
+    return task;
 }
 
 const insertTask = async(data) => {
-    return await db.insert(data).into('tasks')
+    const newTask = await db.insert(data).into('tasks')
+    return newTask
 }
 
-module.exports(getTask, insertTask);
+module.exports = { getTask, insertTask };
