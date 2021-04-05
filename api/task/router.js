@@ -1,13 +1,13 @@
 // build your `/api/tasks` router here
 const express = require('express');
 const Task = require('./model')
-const router = express.Router();
+const taskRouter = express.Router();
 
 //get request from task
-router.get('/', async(req, res, next) => {
+taskRouter.get('/', async(req, res, next) => {
     try {
-        const data = await Task.getAll();
-        res.status(201).json(data)
+        const tasks = await Task.getTask();
+        res.status(200).json(tasks)
     } catch (err) {
         next(err)
     }
@@ -15,20 +15,19 @@ router.get('/', async(req, res, next) => {
 
 //post task
 
-router.post('/', async(req, res, next) => {
-    try {
-        const newSource = await Task.insert(req.body)
-        res.status(201).json(newSource)
-    } catch (err) {
-        next(err)
-    }
+taskRouter.post('/', async(req, res, next) => {
+    await Task.insertTask(req.body)
+        .then(newTask => {
+            res.status(200).json(newTask)
+        })
+        .catch(next())
 })
 
-router.use((err, req, res, next) => {
+taskRouter.use((err, req, res, next) => {
     res.status(500).json({
         message: 'something went wrong inside the resource router',
         errMessage: err.message,
     })
 })
 
-module.exports = router;
+module.exports = taskRouter;
